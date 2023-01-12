@@ -25,4 +25,8 @@ class UserDataBuilder {
     return this
   }
 
+  withInvalidPassword() {
+    this.userData.password = ''
+    return this
+  }
 }
