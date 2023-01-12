@@ -19,4 +19,10 @@ class UserDataBuilder {
     this.userData.email = this.userData.email.replace('@', '')
     return this
   }
+
+  withInvalidAge() {
+    this.userData.age = 10
+    return this
+  }
+
 }
