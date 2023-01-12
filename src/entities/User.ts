@@ -2,7 +2,7 @@ export interface IUser {
   email: string
   password: string
   profession: keyof typeof professions
-  language: string
+  age: number
 }
 
 const professions = {
@@ -14,11 +14,11 @@ const professions = {
 export class User {
   private readonly email: string
   private readonly password: string
-  private readonly language: string
+  private readonly age: number
   private readonly profession: keyof typeof professions
-  constructor({ email, language, password, profession }: IUser){
+  constructor({ email, age, password, profession }: IUser){
     this.email = email
-    this.language = language,
+    this.age = age,
     this.password = password
     this.profession = profession
   }
