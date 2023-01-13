@@ -1,7 +1,7 @@
 import { IUser, User } from '../../src/entities/User'
 
-class UserDataBuilder {
-  private readonly userData: IUser
+export class UserDataBuilder {
+  private readonly userData: IUser | any
   constructor() {
     this.userData = {
       age: 19,
@@ -28,5 +28,10 @@ class UserDataBuilder {
   withInvalidPassword() {
     this.userData.password = ''
     return this
+  }
+
+  build() {
+    const user = new User(this.userData)
+    return user
   }
 }
