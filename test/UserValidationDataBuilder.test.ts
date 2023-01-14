@@ -7,6 +7,7 @@ describe('Test Data Builder', () => {
 
   it('should valid object user not errors', () => {
     const user = UserDataBuilder.aUser().build()
+
     const result = validationUser(user)
     const expected = {
       errors: [],
@@ -24,5 +25,15 @@ describe('Test Data Builder', () => {
     }    
     expect(result).to.be.deep.equal(expected)
   })
+
+    it('should be error invalid age if age <= 12 ', () => {
+      const user = UserDataBuilder.aUser().withInvalidAge().build()
+      const result = validationUser(user)
+      const expected = {
+        errors:['Only accepts over 12 years old'],
+        result: false
+      }    
+      expect(result).to.be.deep.equal(expected)  
+    })
 
 })
