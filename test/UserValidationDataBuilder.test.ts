@@ -15,4 +15,14 @@ describe('Test Data Builder', () => {
     expect(result).to.be.deep.equal(expected)
   })
 
+  it('should be error invalid email', () => {
+    const user = UserDataBuilder.aUser().withInvalidEmail().build()
+    const result = validationUser(user)
+    const expected = {
+      errors:['Invalid email'],
+      result: false
+    }    
+    expect(result).to.be.deep.equal(expected)
+  })
+
 })
