@@ -36,4 +36,14 @@ describe('Test Data Builder', () => {
       expect(result).to.be.deep.equal(expected)  
     })
 
+    it('should be error invalid password length', () => {
+      const user = UserDataBuilder.aUser().withInvalidPassword().build()
+      const result = validationUser(user)
+      const expected = {
+        errors:['Invalid password'],
+        result: false
+      }    
+      expect(result).to.be.deep.equal(expected)  
+    })
+
 })
